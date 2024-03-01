@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="soma.js" defer></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Document</title>
+</head>
+<body>
+    <h3>Digite tres numeros nos campos abaixo</h3>
+
+<input type="text" id="n1">
+<input type="text" id="n2">
+<input type="text" id="n3">
+
+<button onclick="soma()">Try it</button>
+
+<h3> a soma deles é</h3>
+
+<script>
+    function soma(){
+    var n1 = document.getElementById("n1").value;
+    var n2 = document.getElementById("n2").value;
+    var n3 = document.getElementById("n3").value;
+    var sum = parseInt(n1) + parseInt(n2) + parseInt(n3);
+    document.getElementById("soma").innerHTML = sum;
+}
+</script>
+
+<p id="soma"> </p>
+</body>
+</html>
