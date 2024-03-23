@@ -102,7 +102,7 @@ function main() {
                 realizarDeposito(valorDeposito);
                 break;
             case 4:
-                let saldoDestino = parseFloat(prompt("Informe o saldo da conta destino: "));
+                let saldoDestino = parseFlzzoat(prompt("Informe o saldo da conta destino: "));
                 let valorTransferencia = parseFloat(prompt("Informe o valor da transferência: "));
                 let limiteTransferencia = parseFloat(prompt("Informe o limite de transferência: "));
                 realizarTransferencia(saldoDestino, valorTransferencia, limiteTransferencia);
