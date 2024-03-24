@@ -124,75 +124,61 @@ function decimalParaBinario(numero) {
 //questao 10
 
 function calcularFatorial() {
+    // Solicitar ao usuário que insira um número
     let numero = prompt("Digite um número para calcular o fatorial:");
-    numero = parseInt(numero);
 
-    if (isNaN(numero) || numero < 0 || !Number.isInteger(numero)) {
-        console.log("Por favor, insira um número inteiro positivo válido.");
-        return;
+    // Verificar se o usuário cancelou a entrada ou inseriu um valor inválido
+    if (numero === null || isNaN(numero) || !Number.isInteger(parseFloat(numero)) || parseInt(numero) < 0) {
+        return "Erro: Por favor, insira um número inteiro positivo válido.";
     }
 
-    console.log("O fatorial de " + numero + " é:", calcularFatorial(numero));
+    // Converter o número para inteiro
+    numero = parseInt(numero);
+
+    // Inicializar o resultado do fatorial como 1
+    let fatorial = 1;
+
+    // Calcular o fatorial
+    for (let i = 2; i <= numero; i++) {
+        fatorial *= i;
+    }
+
+    return fatorial;
 }
+
+
+
+
+
 
 //-------------------------------------------------------
 
-function menu() {
-    console.log("Escolha uma das opções abaixo:");
-    console.log("1. Bem-vindo");
-    console.log("2. Par ou Ímpar");
-    console.log("3. Média Aritmética");
-    console.log("4. Caixa Alta");
-    console.log("5. Número Primo");
-    console.log("6. Array Invertido");
-    console.log("7. Porcentagem");
-    console.log("8. Palíndromo");
-    console.log("9. Decimal para Binário");
-    console.log("10. Calcular Fatorial");
-    console.log("0. Sair");
 
-    let opcao = prompt("Digite o número da opção desejada:");
 
-    switch (opcao) {
-        case "1":
-            console.log("Bem Vindo");
-            break;
-        case "2":
-            imparOuPar();
-            break;
-        case "3":
-            mediaAritmetica();
-            break;
-        case "4":
-            caixaAlta();
-            break;
-        case "5":
-            numeroPrimo();
-            break;
-        case "6":
-            arrayInvertido();
-            break;
-        case "7":
-            porcentagem();
-            break;
-        case "8":
-            palindromo();
-            break;
-        case "9":
-            decimalParaBinario();
-            break;
-        case "10":
-            calcularFatorial();
-            break;
-        case "0":
-            console.log("Saindo do programa.");
-            return;
-        default:
-            console.log("Opção inválida. Por favor, escolha novamente.");
-    }
+let opcao = parseInt(prompt("Escolha uma opção:\n1. Bem-vindo\n2. Par ou Ímpar\n3. Média Aritmética\n4. Caixa Alta\n5. Número Primo\n6. Array Invertido\n7. Porcentagem\n8. Palíndromo\n9. Decimal para Binário\n10. Calcular Fatorial\n0. fechar programa\n"));
 
-    menu(); // Exibir o menu novamente após executar a opção selecionada
+if (opcao === 1) {
+    bemVindo();
+} else if (opcao === 2) {
+    imparOuPar();
+} else if (opcao === 3) {
+    mediaAritmetica();
+} else if (opcao === 4) {
+    caixaAlta();
+} else if (opcao === 5) {
+    numeroPrimo();
+} else if (opcao === 6) {
+    arrayInvertido();
+} else if (opcao === 7) {
+    porcentagem();
+} else if (opcao === 8) {
+    palidromo();
+} else if (opcao === 9) {
+    decimalParaBinario();
+} else if (opcao === 10) {
+    // Chamar a função e exibir o resultado
+let resultado = calcularFatorial();
+console.log("O fatorial é:", resultado);
+} else if (opcao === 0){
+    process.exit();
 }
-
-// Chamada da função de menu para iniciar o programa
-menu();
