@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Clima</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #weather-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Consulta de Clima</h1>
+    <input type="text" id="city-input" placeholder="Digite o nome da cidade">
+    <button onclick="getWeather()">Obter Clima</button>
+    <div id="weather-info"></div>
+
+    <script>
+        function getWeather() {
+            const city = document.getElementById('city-input').value;
+            const apiKey = 'SUA_CHAVE_DE_API';
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const weatherInfo = document.getElementById('weather-info');
+                    if (data.cod === 200) {
+                        const { name, main: { temp, humidity }, weather } = data;
+                        const description = weather[0].description;
+                        weatherInfo.innerHTML = `
+                            <h2>Clima em ${name}</h2>
+                            <p>Temperatura: ${temp}°C</p>
+                            <p>Umidade: ${humidity}%</p>
+                            <p>Descrição: ${description}</p>
+                        `;
+                    } else {
+                        weatherInfo.innerHTML = `<p>Cidade não encontrada. Verifique o nome digitado.</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao obter o clima:', error);
+                });
+        }
+    </script>
+</body>
+</html>
