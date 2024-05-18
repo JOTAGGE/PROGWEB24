@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de CEP e Clima</title>
+    <!-- para JS -->
+	<script src="cepEclima.js" defer></script>
+    <!-- para CSS -->
+    <link href="cepEclimaStyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de CEP e Clima</h1>
+        <div>
+            <label for="cepInput">Digite o CEP:</label>
+            <input type="text" id="cepInput" placeholder="Ex: 12345-678">
+            <button onclick="consultarCEP()">Consultar</button>
+        </div>
+        <div id="endereco"></div>
+        <div id="clima"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
