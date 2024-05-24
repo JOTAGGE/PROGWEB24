@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta de CEP e Clima</title>
-    <!-- para JS -->
-	<script src="cepEclima.js" defer></script>
-    <!-- para CSS -->
-    <link href="cepEclimaStyle.css" rel="stylesheet" type="text/css" />
+    <script src="cepEclima.js"></script>
+    <link rel="stylesheet" href="cepEclimaStyle.css">
 </head>
 <body>
     <div class="container">
-        <h1>Consulta de CEP e Clima</h1>
-        <div>
-            <label for="cepInput">Digite o CEP:</label>
-            <input type="text" id="cepInput" placeholder="Ex: 12345-678">
-            <button onclick="consultarCEP()">Consultar</button>
-        </div>
-        <div id="endereco"></div>
-        <div id="clima"></div>
+    <div class = "input-group">
+        <h2 for="cepInput">Digite o CEP:</h2>
+        <input type="text" id="cepInput" placeholder="Exemplo: 50740050">
+        <button onclick="fetchEndereco()">Consultar</button> 
+        <br><br>
+        <div id="endereco">Digite um CEP e clique em consultar.</div>
     </div>
-    <script src="script.js"></script>
+        <div class="input-group">
+            <h2>Consulte a Previsão do Tempo</h2>
+            <input type="text" id="cidadeInput" placeholder="Digite o nome da cidade">
+            <button id="buscarClimaBtn" onclick="fetchClima()">Buscar Clima</button>
+            <br><br>
+            <div id="clima">Digite uma Cidade e clique em Buscar</div>
+        </div>  
+        
+    </div>
+    
 </body>
 </html>
